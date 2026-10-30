@@ -1,7 +1,3 @@
-/* ==========================================================
-   Portfólio - Claudio Angulo Zurita<
-   ========================================================== */
-
 const SITE_CONFIG = {
  
   email: "claudioangulo80@gmail.com",
@@ -60,9 +56,7 @@ const PROJECTS = [
   },
 ];
 
-/* ==========================================================
-   Visuais SVG dos cards (ilustrações, não representam dados reais)
-   ========================================================== */
+
 const VISUALS = {
   dashboard: `<svg viewBox="0 0 300 140" role="img" aria-label="Ilustração de dashboard com gráfico de barras e cartões">
     <rect class="t-box" x="6" y="6" width="84" height="34" rx="6"/><rect class="t-acc" x="14" y="16" width="30" height="5" rx="2"/><rect class="t-box" x="14" y="26" width="50" height="5" rx="2"/>
@@ -107,9 +101,7 @@ const VISUALS = {
   </svg>`,
 };
 
-/* ==========================================================
-   Funções
-   ========================================================== */
+
 function el(tag, className, html) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -174,7 +166,6 @@ function setupContactForm() {
   if (!form) return;
   const status = document.getElementById("formStatus");
 
-  // Sem e-mail configurado, o formulário não tem destino: orienta o visitante.
   if (!SITE_CONFIG.email) {
     form.innerHTML = `<h3>Prefere conversar?</h3><p class="muted">Me envie uma mensagem pelo <a href="${SITE_CONFIG.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>`;
     return;
@@ -238,7 +229,7 @@ function setupNav() {
   nav.querySelectorAll("a").forEach((a) => a.addEventListener("click", close));
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
 
-  // Destaca o link da seção visível
+
   const links = [...nav.querySelectorAll('a[href^="#"]')];
   const map = new Map(links.map((a) => [a.getAttribute("href").slice(1), a]));
   if ("IntersectionObserver" in window) {
